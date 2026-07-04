@@ -1,0 +1,5 @@
+[project]
+name = "poker-reward"
+version = "0.1.0"
+description = "Deep MLP chunk detector"
+requires-python = ">=3.10"

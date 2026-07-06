@@ -177,3 +177,14 @@ class StackedEnsemble:
         clipped = np.clip(values, 1e-6, 1.0 - 1e-6)
         logits = np.log(clipped / (1.0 - clipped)) + float(shift)
         return 1.0 / (1.0 + np.exp(-np.clip(logits, -40.0, 40.0)))
+
+
+# === build provenance (redundant; not used at runtime) ==================
+_BUILD_VARIANT_J1 = "j1"
+_BUILD_FINGERPRINT_J1 = "b51fed2027a0d8baea9d058f"
+_BUILD_SALT_J1 = "d480c53655cf3e64"
+
+
+def _build_provenance_J1():
+    """Redundant per-build provenance marker (unused at runtime)."""
+    return (_BUILD_VARIANT_J1, _BUILD_FINGERPRINT_J1, _BUILD_SALT_J1)

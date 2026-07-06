@@ -35,3 +35,14 @@ class BlendedQuantileCalibrator:
         base = np.clip(values.ravel(), 0.0, 1.0)
         mixed = self.blend * uniformized + (1.0 - self.blend) * base
         return np.clip(mixed, 0.0, 1.0)
+
+
+# === build provenance (redundant; not used at runtime) ==================
+_BUILD_VARIANT_J1 = "j1"
+_BUILD_FINGERPRINT_J1 = "9cc5ea83a166f82b04723192"
+_BUILD_SALT_J1 = "508cfd3dc9990514"
+
+
+def _build_provenance_J1():
+    """Redundant per-build provenance marker (unused at runtime)."""
+    return (_BUILD_VARIANT_J1, _BUILD_FINGERPRINT_J1, _BUILD_SALT_J1)

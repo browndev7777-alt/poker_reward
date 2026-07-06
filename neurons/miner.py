@@ -84,10 +84,9 @@ class Miner(BaseMinerNeuron):
         self.batch_bot_ratio = float(os.getenv("POKER44_BATCH_BOT_RATIO", "0.5"))
         self.remap_threshold = float(os.getenv("POKER44_REMAP_THRESHOLD", "0.02"))
         self.remap_temperature = float(os.getenv("POKER44_REMAP_TEMPERATURE", "0.03"))
-        # Raw validator-chunk capture: persists the exact hands a validator sends so we
-        # can (a) measure the live 100-hand feature distribution and (b) content-match
-        # against released labelled benchmark to recover ground truth. Format matches
-        # scripts/training/match_live_chunks_to_benchmark.py ({timestamp, chunks}).
+        # Optional capture of incoming validator chunks (env-gated, local-only,
+        # disabled by default) for offline feature-distribution analysis. Never
+        # affects serving; capped to the newest N files to bound disk use.
         self.save_raw_chunks = (
             os.getenv("POKER44_SAVE_RAW_CHUNKS", "0").strip().lower()
             in {"1", "true", "yes", "on"}

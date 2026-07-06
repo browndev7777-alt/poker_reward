@@ -671,9 +671,8 @@ class ChunkSetTransformer(nn.Module):
     ) -> torch.Tensor:
         """Shared feature extractor: tokens -> chunk embedding (pre-head).
 
-        Exposed so the domain-adversarial trainer (``sequence_dann``) can tap
-        the chunk representation and attach a second (domain) head. ``forward``
-        is unchanged in behaviour: ``head(encode(...))``.
+        Exposed so auxiliary heads can tap the chunk representation without
+        changing ``forward`` behaviour (``head(encode(...))``).
         """
         batch, hands, actions = action_type.shape
         position_ids = (
